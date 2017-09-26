@@ -1,0 +1,13 @@
+.panel.panel-default
+  table.table.table-striped
+    thead
+      th
+        = t('activerecord.attributes.post.title')
+      th
+        = t('activerecord.attributes.post.author')
+      th
+        = t('activerecord.attributes.created_at')
+    tbody
+      - posts.each do |post|
+        = render 'posts/item', post: post
+= paginate(posts)

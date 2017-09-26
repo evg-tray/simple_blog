@@ -1,0 +1,12 @@
+.page-header
+  h3
+    = @post.title
+p
+  - if policy(@post).edit?
+    = link_to t('.edit_post'), edit_post_path, class: 'btn btn-primary'
+  |&nbsp
+  - if policy(@post).destroy?
+    = link_to t('.delete_post'), post_path(@post), method: :delete, class: 'btn btn-danger'
+.panel.panel-default
+  .panel-body
+    = simple_format(@post.body)

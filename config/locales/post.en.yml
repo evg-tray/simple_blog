@@ -1,0 +1,15 @@
+en:
+  posts:
+    form:
+      create_post: 'Create post'
+      update_post: 'Update post'
+      new_post: 'New post'
+      edit_post: 'Edit post'
+    index:
+      title: 'All posts'
+    show:
+      delete_post: 'Delete post'
+      edit_post: 'Edit post'
+  activerecord:
+    attributes:
+      created_at: 'Date'

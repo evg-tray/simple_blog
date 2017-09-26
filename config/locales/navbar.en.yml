@@ -1,0 +1,7 @@
+en:
+  layouts:
+    navbar:
+      main: "All posts"
+      my_posts: "My posts"
+      create_post: "Create post"
+      change_password_email: 'Change password/email'

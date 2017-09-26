@@ -1,0 +1,7 @@
+tr
+  td
+    = link_to post.title, post_path(post)
+  td
+    = post.author.username
+  td
+    = date_format(post.created_at)
