@@ -1,0 +1,8 @@
+<% unless @comment.errors.present? %>
+  $('.messages').append('<%= j render 'posts/comment', comment: @comment %>')
+  $('.no-comments').hide()
+  $('#comment_text').val('')
+  $('.comment-errors').html('')
+<% else %>
+  $('.comment-errors').html('<%= j error_messages(@comment) %>')
+<% end %>

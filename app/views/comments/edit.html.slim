@@ -1,0 +1,11 @@
+.page-header
+  h3
+    = t('.edit_comment')
+.panel.panel-default
+  .panel-body
+    = error_messages(@comment)
+    = form_for @comment do |f|
+      .form-group
+        = f.label :text, class: 'control-label'
+        = f.text_area :text, class: 'form-control'
+      = f.submit t('.update_comment'), class: 'btn btn-primary'

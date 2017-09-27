@@ -1,0 +1,13 @@
+p
+  b
+    = comment.author.username
+  |&nbsp
+  = date_format(comment.created_at)
+  |&nbsp
+  - if policy(comment).edit?
+    = link_to t('.edit_comment'), edit_comment_path(comment), class: 'btn btn-primary btn-sm'
+    |&nbsp
+  - if policy(comment).destroy?
+    = link_to t('.delete_comment'), comment_path(comment), method: :delete, class: 'btn btn-danger btn-sm'
+p
+  = simple_format(comment.text)

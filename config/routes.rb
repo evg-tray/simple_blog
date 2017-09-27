@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   resources :posts do
     get 'my', to: 'posts#my_posts', on: :collection
   end
+  resources :comments, only: [:create, :edit, :update, :destroy]
   root 'posts#index'
 end

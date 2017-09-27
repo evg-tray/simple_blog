@@ -1,0 +1,21 @@
+.page-header
+  h3
+    = t('.title')
+.panel.panel-default
+  .panel-body
+    .messages
+      - if @post.comments.present?
+        - @post.comments.includes(:author).each do |comment|
+          = render 'comment', comment: comment
+      - else
+        .no-comments
+          p
+            = t('.no_comments')
+    - if user_signed_in?
+      hr
+      .comment-errors
+      = form_for @post.comments.build, remote: true do |f|
+        .form-group
+          = f.text_area :text, class: 'form-control', placeholder: t('.text_placeholder')
+          = hidden_field_tag :post_id, @post.id
+        = f.submit t('.create_comment'), class: 'btn btn-primary'

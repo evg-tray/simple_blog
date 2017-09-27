@@ -1,0 +1,14 @@
+en:
+  posts:
+    comments:
+      title: 'Comments'
+      no_comments: 'No comments.'
+      create_comment: 'Create comment'
+      text_placeholder: 'Comment text'
+    comment:
+      edit_comment: 'Edit'
+      delete_comment: 'Delete'
+  comments:
+    edit:
+      edit_comment: 'Edit comment'
+      update_comment: 'Update'
