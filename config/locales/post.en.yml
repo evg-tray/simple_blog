@@ -10,6 +10,13 @@ en:
     show:
       delete_post: 'Delete post'
       edit_post: 'Edit post'
+    my_posts:
+      title: 'My posts'
+    no_posts: 'No posts'
   activerecord:
     attributes:
-      created_at: 'Date'
+      post:
+        created_at: 'Date'
+        title: 'Title'
+        body: 'Body'
+        author: 'Author'

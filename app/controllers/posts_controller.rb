@@ -38,6 +38,11 @@ class PostsController < ApplicationController
     respond_with(@post)
   end
 
+  def my_posts
+    @posts = current_user.posts.page(params[:page])
+    respond_with(@posts)
+  end
+
   private
 
   def post_params

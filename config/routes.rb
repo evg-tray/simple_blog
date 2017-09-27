@@ -11,6 +11,8 @@ Rails.application.routes.draw do
       end
   end
 
-  resources :posts
+  resources :posts do
+    get 'my', to: 'posts#my_posts', on: :collection
+  end
   root 'posts#index'
 end

@@ -10,7 +10,7 @@ nav.navbar.navbar-default.navbar-static-top#main-navbar
       - if user_signed_in?
         ul.nav.navbar-nav
           li
-            = link_to t('.my_posts'), '#'
+            = link_to t('.my_posts'), my_posts_path
           li
             = link_to t('.create_post'), new_post_path
       ul.nav.navbar-nav.navbar-right
