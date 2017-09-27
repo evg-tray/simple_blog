@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   end
   resources :comments, only: [:create, :edit, :update, :destroy]
   root 'posts#index'
+  resources :tags, only: [:show]
 end

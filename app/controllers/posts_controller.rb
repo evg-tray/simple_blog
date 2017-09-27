@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.public_posts.includes(:author).page(params[:page])
+    @tags = Post.tag_counts_on(:tags)
     respond_with(@posts)
   end
 
@@ -47,7 +48,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :public)
+    params.require(:post).permit(:title, :body, :public, :tag_list)
   end
 
   def date_from_string

@@ -10,4 +10,6 @@ p
 .panel.panel-default
   .panel-body
     = simple_format(@post.body)
+    p
+      = render @post.tags
 = render 'posts/comments'

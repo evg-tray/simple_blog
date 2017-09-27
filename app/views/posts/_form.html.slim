@@ -18,6 +18,9 @@
             = f.text_field :created_at, value: date_format(post.created_at), class: 'form-control'
             span.input-group-addon
               span.glyphicon.glyphicon-calendar
+      .form-group
+        = f.label :tag_list, class: 'control-label'
+        = f.text_field :tag_list, value: f.object.tag_list.to_s, class: 'form-control'
       .checkbox
         label
           = f.check_box :public
