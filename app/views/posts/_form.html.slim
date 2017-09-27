@@ -18,4 +18,8 @@
             = f.text_field :created_at, value: date_format(post.created_at), class: 'form-control'
             span.input-group-addon
               span.glyphicon.glyphicon-calendar
+      .checkbox
+        label
+          = f.check_box :public
+          = t('activerecord.attributes.post.public')
       = f.submit new_record ? t('.create_post') : t('.update_post'), class: 'btn btn-primary'

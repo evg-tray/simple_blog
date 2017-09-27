@@ -4,4 +4,5 @@ class Post < ApplicationRecord
   validates :body, presence: true, length: { minimum: 30 }
 
   default_scope -> { order('created_at DESC') }
+  scope :public_posts, -> { where(public: true) }
 end

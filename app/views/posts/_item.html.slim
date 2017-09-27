@@ -5,3 +5,6 @@ tr
     = post.author.username
   td
     = date_format(post.created_at)
+  - if my_posts
+    td
+      = post.public

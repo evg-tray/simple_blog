@@ -9,7 +9,7 @@ feature 'Create posts', %q{
   given(:user) { create(:user) }
   given(:post) { build(:post) }
 
-  scenario 'User create post' do
+  scenario 'User create public post' do
     sign_in(user)
 
     visit new_post_path
@@ -26,6 +26,25 @@ feature 'Create posts', %q{
     within '.table' do
       expect(page).to have_content user.username
     end
+  end
+
+  scenario 'User create private post' do
+    sign_in(user)
+
+    visit new_post_path
+
+    fill_in 'Title', with: post.title
+    fill_in 'Body', with: post.body
+    uncheck 'Public'
+
+    within '.panel' do
+      click_on t('posts.form.create_post')
+    end
+
+    visit posts_path
+    expect(page).not_to have_content post.title
+    visit my_posts_path
+    expect(page).to have_content post.title
   end
 
   scenario 'Not-authenticated user tries create post' do

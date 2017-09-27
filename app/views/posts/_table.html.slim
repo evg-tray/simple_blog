@@ -1,3 +1,5 @@
+- unless defined?(my_posts)
+  - my_posts = false
 .panel.panel-default
   table.table.table-striped
     thead
@@ -7,7 +9,10 @@
         = t('activerecord.attributes.post.author')
       th
         = t('activerecord.attributes.post.created_at')
+      - if my_posts
+        th
+          = t('activerecord.attributes.post.public')
     tbody
       - posts.each do |post|
-        = render 'posts/item', post: post
+        = render 'posts/item', post: post, my_posts: my_posts
 = paginate(posts)

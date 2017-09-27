@@ -3,16 +3,17 @@ class PostsController < ApplicationController
   before_action :load_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all.includes(:author).page(params[:page])
+    @posts = Post.public_posts.includes(:author).page(params[:page])
     respond_with(@posts)
   end
 
   def show
+    authorize(@post)
     respond_with(@post)
   end
 
   def new
-    @post = current_user.posts.new
+    @post = current_user.posts.new(public: true)
     respond_with(@post)
   end
 
@@ -46,7 +47,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :public)
   end
 
   def date_from_string
